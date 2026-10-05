@@ -9,7 +9,7 @@
     <ul>
         @foreach ($tours as $tour)
             <li>
-                {{ $tour['name'] }} — {{ $tour['duration'] }} — Rp{{ $tour['price'] }}
+                {{ $tour->title }} — {{ $tour->duration_minutes }} — Rp{{ $tour->base_price }}
             </li>
         @endforeach
     </ul>
