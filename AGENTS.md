@@ -1,6 +1,6 @@
 # Project Overview
 
-This is a Laravel learning project for a Product Management CRUD application.
+This is a Laravel learning project for **TourFlow**, an operations app for small tour operators: managing Tours, Departures, Guides, Bookings, and Guests.
 
 ## Learning Goal
 
@@ -10,11 +10,11 @@ Learn web development with Laravel using an AI-native workflow. AI may generate 
 
 - Laravel, PHP, MySQL, Blade, Tailwind CSS, and Vite
 - Flowbite or other pre-built Tailwind components may be considered later
-- Docker is planned for the deployment stage
+- Docker and AWS (ECS Fargate, ECR, RDS MySQL, Secrets Manager) are planned for the deployment stage
 
 ## Planned Core Feature
 
-Product CRUD: list, view details, create, update, and delete products. Likely fields: `id`, `name`, `sku`, `price`, `stock`, `description`, `status`, `created_at`, and `updated_at`. Do not implement CRUD yet unless asked.
+Core domain: `Tour` has many `Departure` (date/time, capacity, assigned Guide) → `Departure` has many `Booking` (guest count, status, capacity validation) → `Booking` has `Guest`; plus `Guide` with availability status. Target features: authentication, dashboard, Tours/Departures/Guides/Bookings list-detail-create-edit-archive, and business rules (capacity, schedule conflict). Do not implement features yet unless asked.
 
 ## Architecture Principles
 
@@ -26,6 +26,7 @@ Follow Laravel conventions and avoid overengineering. Do not add repository patt
 - Validate input, distrust client data, and use Laravel CSRF protection.
 - Guard against mass assignment; add authorization checks when user/auth features are introduced.
 - Use Eloquent or parameter binding for database access.
+- Use escaped Blade output (`{{ }}`) for untrusted data; keep `APP_DEBUG=false` in production.
 
 ## Agent Workflow
 
