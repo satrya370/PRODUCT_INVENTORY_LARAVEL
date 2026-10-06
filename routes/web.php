@@ -15,8 +15,6 @@ Route::get('/hello', function () {
     return 'Hello TourFlow';
 });
 
-Route::get('/tours/{id}', function ($id) {
-    return 'Tour ID: ' . $id;
-})->name('tours.show');
+Route::get('/tours/{tour}', [TourController::class, 'show'])->name('tours.show');
 
 Route::get('/tours-demo', [TourController::class, 'index']);
