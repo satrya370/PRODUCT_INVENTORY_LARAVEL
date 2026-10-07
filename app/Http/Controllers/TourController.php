@@ -16,6 +16,6 @@ class TourController extends Controller
 
     public function show(Tour $tour)
     {
-        return 'Tour ID: ' . $tour->id . ' | Tour name: ' . $tour->title;
+        return view('tours.show', ['tour' => $tour]);
     }
 }
